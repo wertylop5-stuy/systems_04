@@ -1,4 +1,5 @@
 #include<stdio.h>
+#include<string.h>
 
 char* my_strcat(char *dest, char *src); 
 char* my_strncat(char *dest, char *src, size_t n);
