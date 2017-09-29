@@ -4,29 +4,71 @@ char* my_strcat(char *dest, char *src);
 char* my_strncat(char *dest, char *src, size_t n);
 
 int main() {
-	char g[] = "ji";
-	char h[] = "ll";
+	char a[] = "ji";
+	char b[] = "ll";
 	
-	char i[20] = "";
-	char o[] = "abcdefg";
+	char c[20] = "";
+	char d[] = "abcdefg";
 	
 	//returns g, not a copy of it
 	/*
-	char *j = strcat(g, h);
-	printf("%p %p\n", j, g);
+	char *j = strcat(a, b);
+	printf("%p %p\n", j, a);
 	*/
 	
-	//printf("%s\n", my_strncat(g, h, 2));
-	//printf("%s\n", my_strncat(i, o, 4));
-	//printf("%s\n", my_strncat(h, g, 0));
-	//printf("%s\n", my_strncat(o, i, 3));
+	//printf("%s\n", my_strncat(a, b, 2));
+	//printf("%s\n", my_strncat(c, d, 4));
+	//printf("%s\n", my_strncat(b, a, 0));
+	//printf("%s\n", my_strncat(d, c, 3));
 	
 	//printf("%s\n", my_strcat(i, o));
-	printf("%s\n", my_strcat(g, h));
-	printf("%s\n", my_strcat(g, h));
-	printf("%s\n", my_strcat(o, i));
-	printf("%s\n", my_strcat(o, i));
+	printf("%s\n", my_strcat(a, b));
+	printf("%s\n", my_strcat(a, b));
+	printf("%s\n", my_strcat(d, c));
+	printf("%s\n", my_strcat(d, c));
 
+	printf("\n\nOBSERVATIONS\n");
+	
+	char g[] = "ji";
+	char h[] = "ll";
+
+	/*
+	strcat appends the second string to the first string and returns a pointer to
+	the first string
+
+	the first string is modified
+	*/
+	printf("%s\n", strcat(g, h));
+	printf("%s\n", strcat(h, g));
+	printf("%p and %p are the same\n", g, strcat(g, h));
+
+
+	char i[2];
+	i[0] = 'p';
+	i[1] = 'i';
+
+	char j[] = "hello";
+
+	/*
+	strings should be null terminated, else unexpected results may occur
+	*/
+	printf("%s\n", strcat(j, i));
+
+
+	char k[] = "boi";
+	char l[] = "gurl";
+
+	/*
+	strncat takes another arg for the bytes to copy
+	*/
+	printf("%s\n", strncat(k, l, 2));
+
+	/*
+	It will still stop at any \0 found in src (the second arg)
+	*/
+	printf("%s\n", strncat(l, k, 10000));
+	
+	
 	return 0;
 }
 
